@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameEvents</name>
+    <events>
+        <event-group description="" sid="133001107252655" title="System">
+            <sub-events>
+                <event-block sid="709544054882977">
+                    <conditions>
+                        <condition id="0" name="On click" sid="714671111753413" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="619039206265820" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="523029814201700" type="System">
+                            <param id="0" name="Object to create">bullet</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="483743666683764" type="bullet">
+                            <param id="0" name="X">arm.ImagePointX(&quot;bulletAnchor&quot;)</param>
+                            <param id="1" name="Y">arm.ImagePointY(&quot;bulletAnchor&quot;)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="147858983313115" type="bullet">
+                            <param id="0" name="Angle">arm.Angle</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="867595162983478" type="bullet">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="473249958857312" title="Player">
+            <sub-events>
+                <event-block sid="239221476755878">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="157358016155558" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="725600529353412" type="ShadowLight">
+                            <param id="0" name="X">player.x</param>
+                            <param id="1" name="Y">player.y</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="348563872826947" type="ShadowLight">
+                            <param id="0" name="Pin to">player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="283912393149536" type="bubbles">
+                            <param id="0" name="X">player.ImagePointX(&quot;bubbleAnchor&quot;)</param>
+                            <param id="1" name="Y">player.ImagePointY(&quot;bubbleAnchor&quot;)</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="873860392900987" type="bubbles">
+                            <param id="0" name="Pin to">player</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="165426976287756" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">03</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="804957184069943" type="lifeHeart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="576754498080991" type="lifeHeart2">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="854505969816385" type="lifeHeart3">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="551033215829675">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="943642381797031" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="865080963906673" type="arm">
+                            <param id="0" name="X">player.ImagePointX(&quot;armAnchor&quot;)</param>
+                            <param id="1" name="Y">player.ImagePointY(&quot;armAnchor&quot;)</param>
+                        </action>
+                        <action id="-22" name="Set angle toward position" sid="749965213911011" type="arm">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="558655712792826" type="light">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="570153146883886" type="light">
+                            <param id="0" name="Angle">player.Angle</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="956353476651533">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="988081679827725" type="player">
+                            <param id="0" name="Animation">&quot;swim&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Start" sid="581476100798694" type="player">
+                            <param id="0" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="790342843866938">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="738597511410012" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="813774917571558" type="player">
+                            <param id="0" name="Magnitude">20</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="478030757470026" type="player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Physics" id="27" name="Set enabled" sid="978256763156522" type="player">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="2" name="Stop" sid="682175148569759" type="player" />
+                        <action id="-15" name="Set visible" sid="329023459442796" type="lifeHeart">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="298070260548054" type="lifeHeart2">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="808534083641111" type="lifeHeart3">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="282345788119750" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="749387444593909" type="System">
+                            <param id="0" name="Layout">&quot;EndKO&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="722033334747053">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="595197753741059" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="471827891854983" type="lifeHeart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="249728077542947" type="lifeHeart2">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="420346112709729" type="lifeHeart3">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="467331550395816">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="584376158649816" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="512844840896758" type="lifeHeart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="854478810603930" type="lifeHeart2">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="554232300817992" type="lifeHeart3">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="552194862222483">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="431543258128694" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="279279924382783" type="lifeHeart">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="818548299166799" type="lifeHeart2">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="944406150698172" type="lifeHeart3">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="241731652473621" title="Boss">
+            <sub-events>
+                <event-block sid="486536717250627">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="506950894636407" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="397511072340439" type="boss">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="837998912683874">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="711058481254675" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="834918851575995" type="lightBoss">
+                            <param id="0" name="Object">boss</param>
+                            <param id="1" name="Image point (optional)">&quot;lightPoint&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="494573146281599">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="841520683854467" type="boss">
+                            <param id="0" name="Object">player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="823945454117593" type="boss">
+                            <param id="0" name="Acceleration">50</param>
+                            <param id="1" name="X">player.X</param>
+                            <param id="2" name="Y">player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="810692460323890">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="957247212604537" type="boss">
+                            <param id="0" name="Object">player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="727605093031640" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="284489267442517" type="System">
+                            <param id="0" name="Object to create">particleHit</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">player.X</param>
+                            <param id="3" name="Y">player.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="833898421286915" type="particleHit">
+                            <param id="0" name="Angle">player.Angle</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="703991145587441">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="559916831067937" type="boss">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="826557435862823" type="player">
+                            <param id="0" name="Magnitude">20</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="628764359971995" type="boss">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Physics" id="27" name="Set enabled" sid="123795591653897" type="boss">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="558766266295106" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="162198558414464" type="System">
+                            <param id="0" name="Layout">&quot;EndOK&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="570765994993130" title="Bullet">
+            <sub-events>
+                <event-block sid="860246055074739">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="839100575598348" type="bullet">
+                            <param id="0" name="Object">boss</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="230024250019755" type="boss">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="908874880638008" type="bullet" />
+                        <action id="-3" name="Create object" sid="735619339245203" type="System">
+                            <param id="0" name="Object to create">particleHit</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">bullet.ImagePointX(&quot;bulletTip&quot;)</param>
+                            <param id="3" name="Y">bullet.ImagePointY(&quot;bulletTip&quot;)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="970428322320814" type="particleHit">
+                            <param id="0" name="Angle">bullet.Angle</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

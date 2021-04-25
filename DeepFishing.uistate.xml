@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout active="1" order="0">Start</layout>
+        <layout order="2">Game</layout>
+        <layout order="4">EndOK</layout>
+        <layout order="7">EndKO</layout>
+        <event-sheet order="1">StartEvents</event-sheet>
+        <event-sheet order="3">GameEvents</event-sheet>
+        <event-sheet order="5">EndOKEvents</event-sheet>
+        <event-sheet order="6">EndKOEvents</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="1" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="0" path="object-folder/" />
+        <folder expanded="0" path="object-folder/characters/" />
+        <folder expanded="0" path="object-folder/light/" />
+        <folder expanded="0" path="object-folder/Fonts/" />
+        <folder expanded="0" path="object-folder/start/" />
+        <folder expanded="0" path="layout-folder/" />
+        <folder expanded="0" path="event-folder/" />
+        <folder expanded="0" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/arm/" />
+        <folder expanded="1" path="animation-folder/boss/" />
+        <folder expanded="1" path="animation-folder/fish/" />
+        <folder expanded="1" path="animation-folder/bullet/" />
+        <folder expanded="1" path="animation-folder/player/" />
+        <folder expanded="1" path="animation-folder/light/" />
+        <folder expanded="1" path="animation-folder/lightBoss/" />
+        <folder expanded="1" path="animation-folder/startPlayer/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/lifeHeart/" />
+        <folder expanded="1" path="animation-folder/boulder/" />
+        <folder expanded="1" path="animation-folder/lifeHeart2/" />
+        <folder expanded="1" path="animation-folder/lifeHeart3/" />
+    </folders-expanded>
+</c2uistate>

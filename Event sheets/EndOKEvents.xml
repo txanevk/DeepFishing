@@ -5,11 +5,33 @@
     <events>
         <event-block sid="131540050290939">
             <conditions>
-                <condition id="1" name="On any key pressed" sid="961169910379352" type="Keyboard" />
+                <condition id="0" name="On key pressed" sid="961169910379352" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-25" name="Go to layout (by name)" sid="621415376315925" type="System">
                     <param id="0" name="Layout">&quot;Start&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="309563172831970">
+            <conditions>
+                <condition id="14" name="On tap" sid="727894790241757" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="786364087023350" type="System">
+                    <param id="0" name="Layout">&quot;Start&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="816484960220434">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="132867936690376" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="691276311233648" type="endPointsLabel">
+                    <param id="0" name="Text">&quot;SCORE &quot; &amp; Score</param>
                 </action>
             </actions>
         </event-block>

@@ -5,10 +5,22 @@
     <events>
         <event-block sid="820645250249825">
             <conditions>
-                <condition id="1" name="On any key pressed" sid="827957752698149" type="Keyboard" />
+                <condition id="0" name="On key pressed" sid="827957752698149" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-25" name="Go to layout (by name)" sid="766254752544606" type="System">
+                    <param id="0" name="Layout">&quot;Game&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="464100127795214">
+            <conditions>
+                <condition id="14" name="On tap" sid="438861578748705" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="381894056465377" type="System">
                     <param id="0" name="Layout">&quot;Game&quot;</param>
                 </action>
             </actions>
@@ -22,11 +34,63 @@
                     <param id="0" name="Object">startPlayer</param>
                     <param id="1" name="Image point (optional)">&quot;bubbleAnchor&quot;</param>
                 </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="750667686280678" type="startBubbles">
+                    <param id="0" name="Pin to">startPlayer</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="963506695065163" type="startPlayer">
+                    <param id="0" name="Object">token1</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="125057959376234" type="token1">
+                    <param id="0" name="X">random(320)</param>
+                    <param id="1" name="Y">random(180)</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="720957952658934" type="startPlayer">
+                    <param id="0" name="X">token1.X</param>
+                    <param id="1" name="Y">token1.Y</param>
+                </action>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="603109976822177" type="startPlayer">
+                    <param id="0" name="X">token1.X</param>
+                    <param id="1" name="Y">token1.Y</param>
+                </action>
+                <action id="0" name="Play" sid="727509603819490" type="Audio">
+                    <param id="0" name="Audio file">BGMusic</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">2</param>
+                    <param id="1" name="Tag (optional)">&quot;BGMusic&quot;</param>
+                </action>
             </actions>
         </event-block>
-        <event-block sid="488407475356693">
-            <conditions />
-            <actions />
+        <event-block sid="734694424741402">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="540118881662181" type="startPlayer" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="285986909886713" type="startPlayer" />
+            </actions>
+        </event-block>
+        <event-block sid="682303209194637">
+            <conditions>
+                <condition behavior="Pathfinding" id="5" name="On arrived" sid="303019428807023" type="startPlayer" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="672115151328570" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-3" name="Set position" sid="929945274275441" type="token1">
+                    <param id="0" name="X">random(320)</param>
+                    <param id="1" name="Y">random(180)</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="769731683758298" type="startPlayer">
+                    <param id="0" name="X">token1.X</param>
+                    <param id="1" name="Y">token1.Y</param>
+                </action>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="575349341952813" type="startPlayer">
+                    <param id="0" name="X">token1.X</param>
+                    <param id="1" name="Y">token1.Y</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
     <name>DeepFishing</name>
-    <description></description>
+    <description>LD48 txaneVK</description>
     <version>1.0</version>
     <author></author>
     <author-email></author-email>
     <author-website></author-website>
-    <app-id></app-id>
+    <app-id>DeepFishing</app-id>
     <unique-id>2qpiupr2gjili</unique-id>
     <saved-with-version>27900</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
-        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
-        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
@@ -30,6 +29,7 @@
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
@@ -74,15 +74,15 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="167378850535457" speed="5">
-                        <frame duration="1" hotspotX="0.3125" hotspotY="0.53125" original-source="C:\GITHUB\DeepFishing\Textures\Arm.png">
-                            <image-point name="bulletAnchor" x="0.75" y="0.5" />
+                        <frame duration="1" hotspotX="0.166667" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\Arm.png">
+                            <image-point name="bulletAnchor" x="0.944444" y="0.333333" />
                             <collision-poly>
-                                <point x="0.46875" y="0.46875" />
-                                <point x="0.53125" y="0.46875" />
-                                <point x="0.5625" y="0.5" />
-                                <point x="0.5" y="0.5625" />
-                                <point x="0.4375" y="0.5625" />
-                                <point x="0.28125" y="0.5" />
+                                <point x="0.388889" y="0.171875" />
+                                <point x="0.939236" y="0.239583" />
+                                <point x="0.585069" y="0.427083" />
+                                <point x="0.555556" y="0.666667" />
+                                <point x="0.112847" y="0.666667" />
+                                <point x="0.111111" y="0.333333" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -94,11 +94,14 @@
                     <instance-variable comment="Health points" name="HP" sid="458381474637987" type="number" />
                 </instance-variables>
                 <behaviors>
-                    <behavior-type name="CustomMovement" sid="128249250692953">
-                        <behavior id="custom" />
-                    </behavior-type>
-                    <behavior-type name="LineOfSight" sid="524346296145103">
+                    <behavior-type name="LineOfSight" sid="623819650779834">
                         <behavior id="LOS" />
+                    </behavior-type>
+                    <behavior-type name="Pathfinding" sid="368943112981299">
+                        <behavior id="Pathfinding" />
+                    </behavior-type>
+                    <behavior-type name="CustomMovement" sid="377123177673079">
+                        <behavior id="custom" />
                     </behavior-type>
                     <behavior-type name="Physics" sid="589595934382657">
                         <behavior id="Physics" />
@@ -116,57 +119,18 @@
                     </effect-type>
                 </effects>
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="642305650173725" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\Boss.png">
-                            <image-point name="lightPoint" x="0.046875" y="0.171875" />
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="642305650173725" speed="5">
+                        <frame duration="1" hotspotX="0.503876" hotspotY="0.625" original-source="C:\GITHUB\DeepFishing\Textures\Boss.png">
+                            <image-point name="lightPoint" x="0.953488" y="0.147727" />
                             <collision-poly>
-                                <point x="0.0371094" y="0.427734" />
-                                <point x="0.273438" y="0.216797" />
-                                <point x="0.48877" y="0.209473" />
-                                <point x="0.680664" y="0.358398" />
-                                <point x="0.859375" y="0.5" />
-                                <point x="0.886719" y="0.650391" />
-                                <point x="0.521484" y="0.720703" />
-                                <point x="0.0488281" y="0.697266" />
-                            </collision-poly>
-                        </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="lightPoint" x="0.046875" y="0.171875" />
-                            <collision-poly>
-                                <point x="0.0371094" y="0.427734" />
-                                <point x="0.273438" y="0.216797" />
-                                <point x="0.48877" y="0.209473" />
-                                <point x="0.680664" y="0.358398" />
-                                <point x="0.859375" y="0.5" />
-                                <point x="0.886719" y="0.650391" />
-                                <point x="0.521484" y="0.720703" />
-                                <point x="0.0488281" y="0.697266" />
-                            </collision-poly>
-                        </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="lightPoint" x="0.046875" y="0.171875" />
-                            <collision-poly>
-                                <point x="0.0371094" y="0.427734" />
-                                <point x="0.273438" y="0.216797" />
-                                <point x="0.48877" y="0.209473" />
-                                <point x="0.680664" y="0.358398" />
-                                <point x="0.859375" y="0.5" />
-                                <point x="0.886719" y="0.650391" />
-                                <point x="0.521484" y="0.720703" />
-                                <point x="0.0488281" y="0.697266" />
-                            </collision-poly>
-                        </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="lightPoint" x="0.046875" y="0.171875" />
-                            <collision-poly>
-                                <point x="0.0371094" y="0.427734" />
-                                <point x="0.273438" y="0.216797" />
-                                <point x="0.48877" y="0.209473" />
-                                <point x="0.680664" y="0.358398" />
-                                <point x="0.859375" y="0.5" />
-                                <point x="0.886719" y="0.650391" />
-                                <point x="0.521484" y="0.720703" />
-                                <point x="0.0488281" y="0.697266" />
+                                <point x="0.936047" y="0.889205" />
+                                <point x="0.482559" y="0.946023" />
+                                <point x="0.120155" y="0.866478" />
+                                <point x="0.00775194" y="0.744318" />
+                                <point x="0.196706" y="0.583806" />
+                                <point x="0.484011" y="0.196734" />
+                                <point x="0.709302" y="0.207387" />
+                                <point x="0.959303" y="0.536932" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -208,14 +172,13 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="830831208685879" speed="5">
-                        <frame duration="1" hotspotX="0.40625" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\bullet.png">
-                            <image-point name="bulletTip" x="0.5625" y="0.46875" />
+                        <frame duration="1" hotspotX="0.142857" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\bullet.png">
+                            <image-point name="bulletTip" x="0.857143" y="0.25" />
                             <collision-poly>
-                                <point x="0.46875" y="0.46875" />
-                                <point x="0.53125" y="0.46875" />
-                                <point x="0.46875" y="0.5" />
-                                <point x="0.5" y="0.5" />
-                                <point x="0.4375" y="0.5" />
+                                <point x="0.140625" y="0.25" />
+                                <point x="0.84375" y="0.25" />
+                                <point x="0.841518" y="0.492188" />
+                                <point x="0.140625" y="0.492188" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -234,6 +197,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable comment="Health points" name="HP" sid="773908523331741" type="number" />
+                    <instance-variable comment="The score" name="score" sid="645582582438490" type="number" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="975017974964692">
@@ -251,64 +215,145 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="4" loop="0" name="swim" pingpong="0" repeatcount="1" repeatto="0" sid="891233763899926" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="armAnchor" x="0.53125" y="0.5625" />
-                            <image-point name="bubbleAnchor" x="0.9375" y="0.375" />
+                        <frame duration="1" hotspotX="0.484848" hotspotY="0.352941">
+                            <image-point name="armAnchor" x="0.515152" y="0.470588" />
+                            <image-point name="bubbleAnchor" x="0.909091" y="0.117647" />
                             <collision-poly>
-                                <point x="0.34375" y="0.34375" />
-                                <point x="0.5" y="0.34375" />
-                                <point x="0.59375" y="0.40625" />
-                                <point x="0.96875" y="0.5" />
-                                <point x="0.5625" y="0.5625" />
-                                <point x="0.5" y="0.625" />
-                                <point x="0.34375" y="0.65625" />
-                                <point x="0.03125" y="0.5" />
+                                <point x="0.333333" y="0.0588235" />
+                                <point x="0.484848" y="0.0588235" />
+                                <point x="0.791666" y="0.0588235" />
+                                <point x="0.939394" y="0.352941" />
+                                <point x="0.757576" y="0.602942" />
+                                <point x="0.125" y="0.625" />
+                                <point x="0.034091" y="0.926471" />
+                                <point x="0.030303" y="0.352941" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\Player.png">
-                            <image-point name="armAnchor" x="0.53125" y="0.5625" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.333333" original-source="C:\GITHUB\DeepFishing\Textures\Player.png">
+                            <image-point name="armAnchor" x="0.529412" y="0.444444" />
                             <collision-poly>
-                                <point x="0.34375" y="0.34375" />
-                                <point x="0.5" y="0.34375" />
-                                <point x="0.59375" y="0.40625" />
-                                <point x="0.96875" y="0.5" />
-                                <point x="0.5625" y="0.5625" />
-                                <point x="0.5" y="0.625" />
-                                <point x="0.34375" y="0.65625" />
-                                <point x="0.03125" y="0.5" />
+                                <point x="0.352941" y="0.0555556" />
+                                <point x="0.5" y="0.0555556" />
+                                <point x="0.797794" y="0.0555556" />
+                                <point x="0.941176" y="0.333333" />
+                                <point x="0.764706" y="0.569445" />
+                                <point x="0.150735" y="0.590277" />
+                                <point x="0.0294118" y="0.986112" />
+                                <point x="0.0294118" y="0.256944" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="armAnchor" x="0.53125" y="0.5625" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                            <image-point name="armAnchor" x="0.529412" y="0.444444" />
                             <collision-poly>
-                                <point x="0.34375" y="0.34375" />
-                                <point x="0.5" y="0.34375" />
-                                <point x="0.59375" y="0.40625" />
-                                <point x="0.96875" y="0.5" />
-                                <point x="0.5625" y="0.5625" />
-                                <point x="0.5" y="0.625" />
-                                <point x="0.34375" y="0.65625" />
-                                <point x="0.03125" y="0.5" />
+                                <point x="0.352941" y="0.0555556" />
+                                <point x="0.5" y="0.0555556" />
+                                <point x="0.797794" y="0.0555556" />
+                                <point x="0.941176" y="0.333333" />
+                                <point x="0.764706" y="0.569445" />
+                                <point x="0.150735" y="0.590277" />
+                                <point x="0.0294118" y="0.958334" />
+                                <point x="0.0294118" y="0.145833" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="armAnchor" x="0.53125" y="0.5625" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                            <image-point name="armAnchor" x="0.529412" y="0.444444" />
                             <collision-poly>
-                                <point x="0.34375" y="0.34375" />
-                                <point x="0.5" y="0.34375" />
-                                <point x="0.59375" y="0.40625" />
-                                <point x="0.96875" y="0.5" />
-                                <point x="0.5625" y="0.5625" />
-                                <point x="0.5" y="0.625" />
-                                <point x="0.34375" y="0.65625" />
-                                <point x="0.03125" y="0.5" />
+                                <point x="0.352941" y="0.0555556" />
+                                <point x="0.5" y="0.0555556" />
+                                <point x="0.797794" y="0.0555556" />
+                                <point x="0.941176" y="0.333333" />
+                                <point x="0.764706" y="0.569445" />
+                                <point x="0.150735" y="0.590277" />
+                                <point x="0.0294118" y="0.944444" />
+                                <point x="0.0294118" y="0.26389" />
                             </collision-poly>
                         </frame>
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="jellyfish" sid="104780546875861">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="HP" sid="919806452317368" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="LineOfSight" sid="193512638195883">
+                        <behavior id="LOS" />
+                    </behavior-type>
+                    <behavior-type name="Pathfinding" sid="282735242783876">
+                        <behavior id="Pathfinding" />
+                    </behavior-type>
+                    <behavior-type name="CustomMovement" sid="417230609901414">
+                        <behavior id="custom" />
+                    </behavior-type>
+                    <behavior-type name="BoundToLayout" sid="931079388863529">
+                        <behavior id="bound" />
+                    </behavior-type>
+                    <behavior-type name="Solid" sid="751393938762550">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="822536640019406" speed="5">
+                        <frame duration="1" hotspotX="0.735294" hotspotY="0.454545" original-source="C:\GITHUB\DeepFishing\Textures\jellyfish.png">
+                            <collision-poly>
+                                <point x="0.205882" y="0.0454545" />
+                                <point x="0.5" y="0.136364" />
+                                <point x="0.794118" y="0.0454545" />
+                                <point x="0.970588" y="0.5" />
+                                <point x="0.764706" y="0.909091" />
+                                <point x="0.5" y="0.772727" />
+                                <point x="0.205882" y="0.954545" />
+                                <point x="0.529412" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="particleHit" sid="892864366242983">
+                <plugin id="Particles" />
+                <texture original-source="C:\GITHUB\DeepFishing\Textures\particleHit.png" />
+            </object-type>
+            <object-type name="treasure1" sid="931217288482448">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="True if the treasure is not placed in an empty tile" name="inNotPlace" sid="629114362670213" type="boolean" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="2" loop="0" name="bright" pingpong="0" repeatcount="1" repeatto="0" sid="932608712663432" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.526316" original-source="C:\GITHUB\DeepFishing\Textures\treasure1.png">
+                            <collision-poly>
+                                <point x="0.04704" y="0.0620665" />
+                                <point x="0.94375" y="0.0620665" />
+                                <point x="0.94375" y="0.363572" />
+                                <point x="0.79375" y="0.94079" />
+                                <point x="0.204408" y="0.94079" />
+                                <point x="0.04704" y="0.371006" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.526316">
+                            <collision-poly>
+                                <point x="0.04704" y="0.0620665" />
+                                <point x="0.94375" y="0.0620665" />
+                                <point x="0.94375" y="0.363572" />
+                                <point x="0.79375" y="0.94079" />
+                                <point x="0.204408" y="0.94079" />
+                                <point x="0.04704" y="0.371006" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="particleBurst" sid="277274150976075">
+                <plugin id="Particles" />
+                <texture />
+            </object-type>
+            <object-type name="Particles" sid="487059384451950">
+                <plugin id="Particles" />
+                <texture />
+            </object-type>
         </object-folder>
-        <object-folder name="light">
+        <object-folder name="Light">
             <object-type name="light" sid="237772345960732">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -324,6 +369,14 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lightBoss.png" />
                     </animation>
                 </animation-folder>
+            </object-type>
+            <object-type name="ShadowLight" sid="377488130249732">
+                <plugin id="shadowlight" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="633438440428934">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
             </object-type>
         </object-folder>
         <object-folder name="Fonts">
@@ -361,7 +414,7 @@
                 <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
             </object-type>
         </object-folder>
-        <object-folder name="start">
+        <object-folder name="Start">
             <object-type name="startBubbles" sid="831876139673215">
                 <plugin id="Particles" />
                 <behaviors>
@@ -373,10 +426,18 @@
             </object-type>
             <object-type name="startPlayer" sid="496009119619821">
                 <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pathfinding" sid="424500969694107">
+                        <behavior id="Pathfinding" />
+                    </behavior-type>
+                    <behavior-type name="BoundToLayout" sid="708894754447361">
+                        <behavior id="bound" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="375497489843439" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\Player.png">
-                            <image-point name="bubbleAnchor" x="1" y="0.40625" />
+                            <image-point name="bubbleAnchor" x="1" y="0.5" />
                             <collision-poly>
                                 <point x="0.34375" y="0.34375" />
                                 <point x="0.5" y="0.34375" />
@@ -385,6 +446,249 @@
                                 <point x="0.5625" y="0.5625" />
                                 <point x="0.5" y="0.625" />
                                 <point x="0.34375" y="0.65625" />
+                                <point x="0.03125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="token1" sid="304067454723566">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="630790168579584" speed="5">
+                        <frame duration="1" hotspotX="1.4" hotspotY="0.6" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="TiledBackground2" sid="231689390131171">
+                <plugin id="TiledBg" />
+                <texture original-source="C:\GITHUB\DeepFishing\Textures\TiledBackground.png" />
+            </object-type>
+            <object-type name="byLabel" sid="785054377866592">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
+            </object-type>
+        </object-folder>
+        <object-folder name="GUI">
+            <object-type name="scoreValueText" sid="640007675659427">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="119312234133641">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
+            </object-type>
+            <object-type name="lifeHeart" sid="307590402281458">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="342569891002361">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="970634432732953" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.5" y="0.3125" />
+                                <point x="0.8125" y="0.1875" />
+                                <point x="0.9375" y="0.5" />
+                                <point x="0.75" y="0.75" />
+                                <point x="0.5" y="0.9375" />
+                                <point x="0.25" y="0.75" />
+                                <point x="0.0625" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="lifeHeart2" sid="167378558838189">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="509913768783599">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="228482664501031" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.5" y="0.3125" />
+                                <point x="0.8125" y="0.1875" />
+                                <point x="0.9375" y="0.5" />
+                                <point x="0.75" y="0.75" />
+                                <point x="0.5" y="0.9375" />
+                                <point x="0.25" y="0.75" />
+                                <point x="0.0625" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="lifeHeart3" sid="446729215277225">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="823633591314973">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="718889687553961" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.5" y="0.3125" />
+                                <point x="0.8125" y="0.1875" />
+                                <point x="0.9375" y="0.5" />
+                                <point x="0.75" y="0.75" />
+                                <point x="0.5" y="0.9375" />
+                                <point x="0.25" y="0.75" />
+                                <point x="0.0625" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="scoreText" sid="321948473292018">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="257054434156199">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
+            </object-type>
+            <object-type name="buttonDown" sid="940421393684437">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="936347936964592">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="707585354678395" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\buttonDown.png">
+                            <collision-poly>
+                                <point x="0.15625" y="0.15625" />
+                                <point x="0.5" y="0.03125" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="1" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15625" y="0.84375" />
+                                <point x="0.03125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="buttonFire" sid="377385065551117">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="811334841102723">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="794660939016900" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\buttonFire.png">
+                            <collision-poly>
+                                <point x="0.15625" y="0.15625" />
+                                <point x="0.5" y="0.03125" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="1" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15625" y="0.84375" />
+                                <point x="0.03125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="buttonLeft" sid="411938919665428">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="446289302930974">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="378716771293588" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\buttonLeft.png">
+                            <collision-poly>
+                                <point x="0.15625" y="0.15625" />
+                                <point x="0.5" y="0.03125" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="1" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15625" y="0.84375" />
+                                <point x="0.03125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="buttonRight" sid="728705310457390">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="677401025213148">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="884904898211895" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\buttonRight.png">
+                            <collision-poly>
+                                <point x="0.15625" y="0.15625" />
+                                <point x="0.5" y="0.03125" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="1" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15625" y="0.84375" />
+                                <point x="0.03125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="buttonUp" sid="941483314284083">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="711806359938034">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="697360182293612" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\buttonUp.png">
+                            <collision-poly>
+                                <point x="0.15625" y="0.15625" />
+                                <point x="0.5" y="0.03125" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="1" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.15625" y="0.84375" />
                                 <point x="0.03125" y="0.5" />
                             </collision-poly>
                         </frame>
@@ -417,129 +721,11 @@
         <object-type name="Browser" sid="3498868852026895">
             <plugin id="Browser" />
         </object-type>
-        <object-type name="ShadowLight" sid="377488130249732">
-            <plugin id="shadowlight" />
-            <behaviors>
-                <behavior-type name="Pin" sid="633438440428934">
-                    <behavior id="Pin" />
-                </behavior-type>
-            </behaviors>
-        </object-type>
         <object-type name="Sprite2" sid="444594382762812">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="860444611186297" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\light2.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="TiledBackground2" sid="231689390131171">
-            <plugin id="TiledBg" />
-            <texture original-source="C:\GITHUB\DeepFishing\Textures\TiledBackground.png" />
-        </object-type>
-        <object-type name="Button" sid="161132138835113">
-            <plugin id="Button" />
-        </object-type>
-        <object-type name="particleHit" sid="892864366242983">
-            <plugin id="Particles" />
-            <texture original-source="C:\GITHUB\DeepFishing\Textures\particleHit.png" />
-        </object-type>
-        <object-type name="lifeHeart" sid="307590402281458">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Anchor" sid="342569891002361">
-                    <behavior id="Anchor" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="970634432732953" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
-                        <collision-poly>
-                            <point x="0.1875" y="0.1875" />
-                            <point x="0.5" y="0.3125" />
-                            <point x="0.8125" y="0.1875" />
-                            <point x="0.9375" y="0.5" />
-                            <point x="0.75" y="0.75" />
-                            <point x="0.5" y="0.9375" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0.0625" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="TextBox" sid="864810545135723">
-            <plugin id="TextBox" />
-        </object-type>
-        <object-type name="boulder" sid="428911558328173">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Solid" sid="244275527819053">
-                    <behavior id="solid" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="419916198651253" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\boulder.png">
-                        <collision-poly>
-                            <point x="0.03125" y="0.03125" />
-                            <point x="0.5" y="0" />
-                            <point x="0.96875" y="0.03125" />
-                            <point x="1" y="0.5" />
-                            <point x="0.96875" y="0.96875" />
-                            <point x="0.5" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="lifeHeart2" sid="167378558838189">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Anchor" sid="509913768783599">
-                    <behavior id="Anchor" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="228482664501031" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
-                        <collision-poly>
-                            <point x="0.1875" y="0.1875" />
-                            <point x="0.5" y="0.3125" />
-                            <point x="0.8125" y="0.1875" />
-                            <point x="0.9375" y="0.5" />
-                            <point x="0.75" y="0.75" />
-                            <point x="0.5" y="0.9375" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0.0625" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="lifeHeart3" sid="446729215277225">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Anchor" sid="823633591314973">
-                    <behavior id="Anchor" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="718889687553961" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\GITHUB\DeepFishing\Textures\lifeFull.png">
-                        <collision-poly>
-                            <point x="0.1875" y="0.1875" />
-                            <point x="0.5" y="0.3125" />
-                            <point x="0.8125" y="0.1875" />
-                            <point x="0.9375" y="0.5" />
-                            <point x="0.75" y="0.75" />
-                            <point x="0.5" y="0.9375" />
-                            <point x="0.25" y="0.75" />
-                            <point x="0.0625" y="0.5" />
-                        </collision-poly>
-                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -555,19 +741,39 @@
             </effects>
             <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
         </object-type>
+        <object-type name="Tilemap" sid="537977262599382">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Solid" sid="853840498145160">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Physics" sid="231857979996225">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="C:\GITHUB\DeepFishing\Textures\boulder.png" />
+            <tiles />
+        </object-type>
+        <object-type name="endPointsLabel" sid="571010020107261">
+            <plugin id="Spritefont2" />
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\GITHUB\DeepFishing\Textures\Font.png" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Start.xml</layout>
         <layout>Game.xml</layout>
         <layout>EndOK.xml</layout>
-        <layout>EndKO.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>GameEvents.xml</event-sheet>
         <event-sheet>StartEvents.xml</event-sheet>
         <event-sheet>EndOKEvents.xml</event-sheet>
-        <event-sheet>EndKOEvents.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />
@@ -599,10 +805,15 @@
         </global-instance>
         <global-instance type="Browser" uid="7" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="bossHowl.ogg" />
+        <file name="fireArrow.ogg" />
+        <file name="pickTreasure.ogg" />
+        <file name="boom.ogg" />
+    </sounds-folder>
     <music-folder>
-        <file name="BGMusic.m4a" />
-        <file name="EndKO.m4a" />
+        <file name="BGMusic.ogg" />
+        <file name="EndKO.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

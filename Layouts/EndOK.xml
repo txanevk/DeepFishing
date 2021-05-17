@@ -54,11 +54,11 @@
                         <character-width>8</character-width>
                         <character-height>8</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</character-set>
-                        <text>YOU WIN</text>
-                        <scale>2</scale>
+                        <text>WELL DONE</text>
+                        <scale>3</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
                         <character-spacing>0</character-spacing>
@@ -78,7 +78,7 @@
                                 <delta>20</delta>
                                 <emboss>0.3</emboss>
                                 <frequency>4</frequency>
-                                <intensity>3</intensity>
+                                <intensity>1</intensity>
                                 <reflectivity>400</reflectivity>
                                 <speed>0.1</speed>
                                 <x-speed>0.15</x-speed>
@@ -89,11 +89,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>152.134185791</x>
-                        <y>66.878379822</y>
+                        <x>160.297836304</x>
+                        <y>44.252929688</y>
                         <z>0</z>
-                        <width>273</width>
-                        <height>52</height>
+                        <width>322.915924072</width>
+                        <height>61.796783447</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -106,11 +106,11 @@
                         <character-width>8</character-width>
                         <character-height>8</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</character-set>
-                        <text>Press ANY KEY to return to main menu</text>
+                        <text>Press SPACE or TAP the screen to return to main menu</text>
                         <scale>1</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
                         <character-spacing>0</character-spacing>
@@ -130,7 +130,7 @@
                                 <delta>20</delta>
                                 <emboss>0.3</emboss>
                                 <frequency>4</frequency>
-                                <intensity>3</intensity>
+                                <intensity>1</intensity>
                                 <reflectivity>400</reflectivity>
                                 <speed>0.1</speed>
                                 <x-speed>0.15</x-speed>
@@ -141,14 +141,53 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>160.727340698</x>
-                        <y>147.43132019</y>
+                        <x>156.295654297</x>
+                        <y>155.128570557</y>
                         <z>0</z>
-                        <width>305.18927002</width>
-                        <height>52</height>
+                        <width>300.058227539</width>
+                        <height>46.868255615</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="endPointsLabel" uid="31">
+                    <properties>
+                        <character-width>8</character-width>
+                        <character-height>8</character-height>
+                        <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</character-set>
+                        <text></text>
+                        <scale>1.5</scale>
+                        <initial-visibility>Visible</initial-visibility>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <character-spacing>0</character-spacing>
+                        <line-height>0</line-height>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="SetColor">
+                            <parameters>
+                                <blue>2.55</blue>
+                                <green>2.55</green>
+                                <red>2.55</red>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0.249023438</x>
+                        <y>85.852302551</y>
+                        <z>0</z>
+                        <width>319.425842285</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

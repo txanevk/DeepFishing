@@ -3,8 +3,110 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>GameEvents</name>
     <events>
+        <variable constant="0" name="Score" sid="294864510164175" static="0" type="number">0</variable>
+        <variable constant="0" name="bossCount" sid="535966745128308" static="0" type="number">1</variable>
+        <variable constant="0" name="jellyfishCount" sid="166268452619343" static="0" type="number">1</variable>
+        <variable constant="0" name="MAX_JELLYFISH" sid="295196997920825" static="0" type="number">3</variable>
         <event-group description="" sid="133001107252655" title="System">
             <sub-events>
+                <event-block sid="832048825215325">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="525817432955503" type="System" />
+                        <condition id="-20" name="Is on mobile device" sid="515803877887062" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="719224951144476" type="buttonUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="427760785517919" type="buttonDown">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="513091475261719" type="buttonLeft">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="925703061303409" type="buttonRight">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="599826182023620" type="buttonFire">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="189295291644602">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="975457619026583" type="System" />
+                        <condition id="-20" inverted="1" name="Is on mobile device" sid="197940179844875" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="334639788144276" type="buttonUp">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="272728539532242" type="buttonDown">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="197563790107131" type="buttonLeft">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="941754438572359" type="buttonRight">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="592960745190763" type="buttonFire">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="435588716465985" title="Keyboard and Mouse input">
+            <sub-events>
+                <event-block sid="424744619746245">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="308108664613429" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="260027465310800" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="289381951639344">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="582538465799125" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="879237613739475" type="player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="815585787330636">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="473858089624006" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="444543262755544" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="517280486257370">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="804048200895831" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="462315165659760" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="709544054882977">
                     <conditions>
                         <condition id="0" name="On click" sid="714671111753413" type="Mouse">
@@ -16,8 +118,15 @@
                             <param id="1" name="Comparison">4</param>
                             <param id="2" name="Value">0</param>
                         </condition>
+                        <condition id="-20" inverted="1" name="Is on mobile device" sid="605621271467824" type="System" />
                     </conditions>
                     <actions>
+                        <action id="0" name="Play" sid="770968966116705" type="Audio">
+                            <param id="0" name="Audio file">fireArrow</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;fireArrow&quot;</param>
+                        </action>
                         <action id="-3" name="Create object" sid="523029814201700" type="System">
                             <param id="0" name="Object to create">bullet</param>
                             <param id="1" name="Layer">&quot;Characters&quot;</param>
@@ -33,6 +142,138 @@
                         </action>
                         <action id="-15" name="Set visible" sid="867595162983478" type="bullet">
                             <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="775346057911757">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="960606172327796" title="TouchButtons">
+            <sub-events>
+                <event-block sid="829145873405636">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="680618800010235" type="Touch">
+                            <param id="0" name="Object">buttonUp</param>
+                        </condition>
+                        <condition id="-20" name="Is on mobile device" sid="782315004635261" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="408397481811584" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="793570309947180">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="747426959498607" type="Touch">
+                            <param id="0" name="Object">buttonDown</param>
+                        </condition>
+                        <condition id="-20" name="Is on mobile device" sid="697100520728897" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="744084555412335" type="player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="757981590383973">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="288996052441693" type="Touch">
+                            <param id="0" name="Object">buttonLeft</param>
+                        </condition>
+                        <condition id="-20" name="Is on mobile device" sid="695956520135727" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="438226608319198" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="673325699173454">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="857611070030559" type="Touch">
+                            <param id="0" name="Object">buttonRight</param>
+                        </condition>
+                        <condition id="-20" name="Is on mobile device" sid="471802506698694" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="693482145291656" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="190045702533854">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="673158470298391" type="Touch">
+                            <param id="0" name="Object">buttonFire</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="435720809567737" type="player">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-20" name="Is on mobile device" sid="187521225744678" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="910524656839680" type="Audio">
+                            <param id="0" name="Audio file">fireArrow</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;fireArrow&quot;</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="885024952357518" type="System">
+                            <param id="0" name="Object to create">bullet</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="893569498299248" type="bullet">
+                            <param id="0" name="X">arm.ImagePointX(&quot;bulletAnchor&quot;)</param>
+                            <param id="1" name="Y">arm.ImagePointY(&quot;bulletAnchor&quot;)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="586641755922958" type="bullet">
+                            <param id="0" name="Angle">arm.Angle</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="710173298589258" type="bullet">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="252643081422838" title="Tilemap">
+            <sub-events>
+                <event-block sid="999105646361029">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="885123949474959" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="212298639407049" type="treasure1">
+                            <param id="0" name="X">Tilemap.TileToPositionX(int(random(0,9)))</param>
+                            <param id="1" name="Y">Tilemap.TileToPositionY(int(random(0,22)))</param>
+                        </action>
+                        <action id="3" name="Start" sid="577728137038620" type="treasure1">
+                            <param id="0" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="858121325996597">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="172504471026375" type="System" />
+                        <condition id="0" name="Compare tile at" sid="404940265097911" type="Tilemap">
+                            <param id="0" name="Tile X">Tilemap.PositionToTileX(treasure1.X)</param>
+                            <param id="1" name="Tile Y">Tilemap.PositionToTileY(treasure1.Y)</param>
+                            <param id="2" name="Comparison">1</param>
+                            <param id="3" name="Tile">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="944176837252508" type="treasure1">
+                            <param id="0" name="X">Tilemap.TileToPositionX(int(random(0,9)))</param>
+                            <param id="1" name="Y">Tilemap.TileToPositionY(int(random(0,22)))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -65,6 +306,10 @@
                             <param id="0" name="Instance variable">HP</param>
                             <param id="1" name="Value">03</param>
                         </action>
+                        <action id="-9" name="Set value" sid="577181584918398" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                         <action id="-15" name="Set visible" sid="804957184069943" type="lifeHeart">
                             <param id="0" name="Visibility">1</param>
                         </action>
@@ -85,9 +330,8 @@
                             <param id="0" name="X">player.ImagePointX(&quot;armAnchor&quot;)</param>
                             <param id="1" name="Y">player.ImagePointY(&quot;armAnchor&quot;)</param>
                         </action>
-                        <action id="-22" name="Set angle toward position" sid="749965213911011" type="arm">
-                            <param id="0" name="X">Mouse.X</param>
-                            <param id="1" name="Y">Mouse.Y</param>
+                        <action id="-8" name="Set angle" sid="749965213911011" type="arm">
+                            <param id="0" name="Angle">player.Angle</param>
                         </action>
                         <action id="-4" name="Set position to another object" sid="558655712792826" type="light">
                             <param id="0" name="Object">player</param>
@@ -95,6 +339,9 @@
                         </action>
                         <action id="-8" name="Set angle" sid="570153146883886" type="light">
                             <param id="0" name="Angle">player.Angle</param>
+                        </action>
+                        <action id="0" name="Set text" sid="378116354376366" type="scoreValueText">
+                            <param id="0" name="Text">Score</param>
                         </action>
                     </actions>
                 </event-block>
@@ -110,6 +357,32 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="245345832164879">
+                    <conditions>
+                        <condition id="-13" name="Is between angles" sid="580701828911747" type="player">
+                            <param id="0" name="First angle">90</param>
+                            <param id="1" name="Second angle">270</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set flipped" sid="979233677859115" type="player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="974273432128442">
+                    <conditions>
+                        <condition id="-13" name="Is between angles" sid="514157189640474" type="player">
+                            <param id="0" name="First angle">270</param>
+                            <param id="1" name="Second angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set flipped" sid="415659359672341" type="player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="790342843866938">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="738597511410012" type="player">
@@ -120,7 +393,7 @@
                     </conditions>
                     <actions>
                         <action behavior="ScrollTo" id="0" name="Shake" sid="813774917571558" type="player">
-                            <param id="0" name="Magnitude">20</param>
+                            <param id="0" name="Magnitude">10</param>
                             <param id="1" name="Duration">0.2</param>
                             <param id="2" name="Mode">0</param>
                         </action>
@@ -140,11 +413,20 @@
                         <action id="-15" name="Set visible" sid="808534083641111" type="lifeHeart3">
                             <param id="0" name="Visibility">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="282345788119750" type="System">
-                            <param id="0" name="Seconds">5</param>
+                        <action id="6" name="Stop" sid="243151041747253" type="Audio">
+                            <param id="0" name="Tag">&quot;BGMusic&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="348562829870974" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="0" name="Play" sid="321650424888917" type="Audio">
+                            <param id="0" name="Audio file">EndKO</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;EndKOMusic&quot;</param>
                         </action>
                         <action id="-25" name="Go to layout (by name)" sid="749387444593909" type="System">
-                            <param id="0" name="Layout">&quot;EndKO&quot;</param>
+                            <param id="0" name="Layout">&quot;EndOK&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -208,6 +490,110 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="409270271092803">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="681765149323244" type="player">
+                            <param id="0" name="Object">treasure1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="173667495006970" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="612337189951586" type="treasure1">
+                            <param id="0" name="X">Tilemap.TileToPositionX(int(random(0,9)))</param>
+                            <param id="1" name="Y">Tilemap.TileToPositionY(int(random(0,22)))</param>
+                        </action>
+                        <action id="0" name="Play" sid="775630268034782" type="Audio">
+                            <param id="0" name="Audio file">pickTreasure</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;pickTreasure&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="195843612569661">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="246661197339473" type="treasure1">
+                            <param id="0" name="Animation">&quot;bright&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Start" sid="571021389874639" type="treasure1">
+                            <param id="0" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="570765994993130" title="Bullet">
+            <sub-events>
+                <event-block sid="860246055074739">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="839100575598348" type="bullet">
+                            <param id="0" name="Object">boss</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="230024250019755" type="boss">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="735619339245203" type="System">
+                            <param id="0" name="Object to create">particleHit</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">bullet.ImagePointX(&quot;bulletTip&quot;)</param>
+                            <param id="3" name="Y">bullet.ImagePointY(&quot;bulletTip&quot;)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="970428322320814" type="particleHit">
+                            <param id="0" name="Angle">bullet.Angle</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="908874880638008" type="bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="237877896199983">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="462604557078016" type="bullet">
+                            <param id="0" name="Object">jellyfish</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="878254463864832" type="jellyfish">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="469943476053041" type="System">
+                            <param id="0" name="Object to create">particleHit</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">bullet.ImagePointX(&quot;bulletTip&quot;)</param>
+                            <param id="3" name="Y">bullet.ImagePointY(&quot;bulletTip&quot;)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="295124985066806" type="particleHit">
+                            <param id="0" name="Angle">bullet.Angle</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="799337226459277" type="bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="432825344946583">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="452514131828872" type="bullet">
+                            <param id="0" name="Object">Tilemap</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="624470818645059" type="System">
+                            <param id="0" name="Object to create">Particles</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">bullet.X</param>
+                            <param id="3" name="Y">bullet.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="252575163819942" type="Particles">
+                            <param id="0" name="Angle">bullet.Angle</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="857767787521526" type="bullet" />
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="241731652473621" title="Boss">
@@ -220,6 +606,10 @@
                         <action id="-10" name="Set value" sid="397511072340439" type="boss">
                             <param id="0" name="Instance variable">HP</param>
                             <param id="1" name="Value">20</param>
+                        </action>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="355892721178496" type="boss">
+                            <param id="0" name="X">boss.X + random(-100,100)</param>
+                            <param id="1" name="Y">boss.Y + random(-100,100)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -234,17 +624,29 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="494573146281599">
+                <event-block sid="981160155741980">
                     <conditions>
-                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="841520683854467" type="boss">
-                            <param id="0" name="Object">player</param>
+                        <condition id="-13" name="Is between angles" sid="210501820221307" type="boss">
+                            <param id="0" name="First angle">90</param>
+                            <param id="1" name="Second angle">270</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="823945454117593" type="boss">
-                            <param id="0" name="Acceleration">50</param>
-                            <param id="1" name="X">player.X</param>
-                            <param id="2" name="Y">player.Y</param>
+                        <action id="8" name="Set flipped" sid="100181362434895" type="boss">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="528388713763338">
+                    <conditions>
+                        <condition id="-13" name="Is between angles" sid="594983096204812" type="boss">
+                            <param id="0" name="First angle">270</param>
+                            <param id="1" name="Second angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set flipped" sid="213116143790597" type="boss">
+                            <param id="0" name="State">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -279,52 +681,337 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="ScrollTo" id="0" name="Shake" sid="826557435862823" type="player">
-                            <param id="0" name="Magnitude">20</param>
-                            <param id="1" name="Duration">0.2</param>
-                            <param id="2" name="Mode">0</param>
+                        <action id="25" name="Play at object" sid="835886878330051" type="Audio">
+                            <param id="0" name="Audio file">boom</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">-5</param>
+                            <param id="3" name="Object">boss</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;boomBoss&quot;</param>
                         </action>
-                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="628764359971995" type="boss">
-                            <param id="0" name="State">0</param>
+                        <action id="-3" name="Create object" sid="268532846505907" type="System">
+                            <param id="0" name="Object to create">particleBurst</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">boss.X</param>
+                            <param id="3" name="Y">boss.Y</param>
                         </action>
-                        <action behavior="Physics" id="27" name="Set enabled" sid="123795591653897" type="boss">
-                            <param id="0" name="Mode">1</param>
+                        <action id="-10" name="Add to" sid="906784617294255" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">50</param>
                         </action>
-                        <action id="-16" name="Wait" sid="558766266295106" type="System">
+                        <action id="-9" name="Destroy" sid="330706750722723" type="boss" />
+                        <action id="-3" name="Set position" sid="586311049596518" type="lightBoss">
+                            <param id="0" name="X">400</param>
+                            <param id="1" name="Y">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="363838191163973" type="System">
                             <param id="0" name="Seconds">5</param>
                         </action>
-                        <action id="-25" name="Go to layout (by name)" sid="162198558414464" type="System">
-                            <param id="0" name="Layout">&quot;EndOK&quot;</param>
+                        <action id="-3" name="Create object" sid="317586736872905" type="System">
+                            <param id="0" name="Object to create">boss</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">tilemap.TileToPositionX(int(random(0,9)))</param>
+                            <param id="3" name="Y">0</param>
                         </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="434680668905470" title="Boss movement">
+                    <sub-events>
+                        <event-block sid="591438665496210">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="415464154946404" type="boss" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="211683678100336" type="boss">
+                                    <param id="0" name="X">boss.X + random(-100,100)</param>
+                                    <param id="1" name="Y">boss.Y + random(-100,100)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="997765775055929">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="0" name="On path found" sid="344404692125252" type="boss" />
+                            </conditions>
+                            <actions>
+                                <action id="25" name="Play at object" sid="508137535801058" type="Audio">
+                                    <param id="0" name="Audio file">bossHowl</param>
+                                    <param id="1" name="Loop">0</param>
+                                    <param id="2" name="Volume">-10</param>
+                                    <param id="3" name="Object">boss</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;bossHowl&quot;</param>
+                                </action>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="949493906204179" type="boss" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="151456515848565">
+                            <conditions>
+                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="355477890781672" type="boss">
+                                    <param id="0" name="Object">player</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="2" name="Stop" sid="661131408343289" type="boss" />
+                                <action behavior="Pathfinding" id="3" name="Set enabled" sid="984832063200978" type="boss">
+                                    <param id="0" name="Set">0</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="336382008463911" type="boss">
+                                    <param id="0" name="X">player.X</param>
+                                    <param id="1" name="Y">player.y</param>
+                                </action>
+                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="791969469293403" type="boss">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="166118844372856" type="boss">
+                                    <param id="0" name="Acceleration">30</param>
+                                    <param id="1" name="X">player.X</param>
+                                    <param id="2" name="Y">player.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="739856846869060">
+                            <conditions>
+                                <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="183187508676562" type="boss">
+                                    <param id="0" name="Object">player</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="426672321407670">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="244124380468686" type="System">
+                                            <param id="0" name="Interval (seconds)">random(1,3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="CustomMovement" id="0" name="Stop" sid="491008733702784" type="boss" />
+                                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="425922842556102" type="boss">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action behavior="Pathfinding" id="3" name="Set enabled" sid="319661382042639" type="boss">
+                                            <param id="0" name="Set">1</param>
+                                        </action>
+                                        <action behavior="Pathfinding" id="0" name="Find path" sid="850341221734864" type="boss">
+                                            <param id="0" name="X">boss.X + random(-100,100)</param>
+                                            <param id="1" name="Y">boss.Y + random(-100,100)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="822841007371657">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="987368504441946" type="boss">
+                                    <param id="0" name="Object">Tilemap</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="10" name="Push out solid" sid="423165408534889" type="boss">
+                                    <param id="0" name="Direction">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
-        <event-group description="" sid="570765994993130" title="Bullet">
+        <event-group description="" sid="385491864418559" title="Jellyfish">
             <sub-events>
-                <event-block sid="860246055074739">
+                <event-block sid="477699534425581">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="839100575598348" type="bullet">
-                            <param id="0" name="Object">boss</param>
+                        <condition id="-2" name="On start of layout" sid="292302137090829" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="576150298719607" type="jellyfish">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="420425252358116" type="jellyfish">
+                            <param id="0" name="X">jellyfish.X + random(-150,150)</param>
+                            <param id="1" name="Y">jellyfish.Y + random(-150,150)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="686746909266868">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="184722600677180" type="jellyfish">
+                            <param id="0" name="Object">player</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-12" name="Subtract from" sid="230024250019755" type="boss">
+                        <action id="-12" name="Subtract from" sid="936492333568036" type="player">
                             <param id="0" name="Instance variable">HP</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="908874880638008" type="bullet" />
-                        <action id="-3" name="Create object" sid="735619339245203" type="System">
+                        <action id="-3" name="Create object" sid="633502179934580" type="System">
                             <param id="0" name="Object to create">particleHit</param>
                             <param id="1" name="Layer">&quot;Characters&quot;</param>
-                            <param id="2" name="X">bullet.ImagePointX(&quot;bulletTip&quot;)</param>
-                            <param id="3" name="Y">bullet.ImagePointY(&quot;bulletTip&quot;)</param>
+                            <param id="2" name="X">player.X</param>
+                            <param id="3" name="Y">player.Y</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="970428322320814" type="particleHit">
-                            <param id="0" name="Angle">bullet.Angle</param>
+                        <action id="-8" name="Set angle" sid="912360534008138" type="particleHit">
+                            <param id="0" name="Angle">player.Angle</param>
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="990245962108360">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="721712721296556" type="jellyfish">
+                            <param id="0" name="Instance variable">HP</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="25" name="Play at object" sid="912907356034027" type="Audio">
+                            <param id="0" name="Audio file">boom</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">-5</param>
+                            <param id="3" name="Object">jellyfish</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;boomJelly&quot;</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="505368922433320" type="System">
+                            <param id="0" name="Object to create">particleBurst</param>
+                            <param id="1" name="Layer">&quot;Characters&quot;</param>
+                            <param id="2" name="X">jellyfish.X</param>
+                            <param id="3" name="Y">jellyfish.Y</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="822378684490247" type="jellyfish" />
+                        <action id="-11" name="Subtract from" sid="832867541575780" type="System">
+                            <param id="0" name="Variable">jellyfishCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="516585039694721" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">25</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="450497423965487" title="Jellyfish movement">
+                    <sub-events>
+                        <event-block sid="465437931148903">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="116322883607269" type="jellyfish" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="514064907658237" type="jellyfish">
+                                    <param id="0" name="X">jellyfish.X + random(-150,150)</param>
+                                    <param id="1" name="Y">jellyfish.Y + random(-150,150)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="665573578219792">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="0" name="On path found" sid="467624325330698" type="jellyfish" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="837602689559870" type="jellyfish" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="720980001430217">
+                            <conditions>
+                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="201068928836401" type="jellyfish">
+                                    <param id="0" name="Object">player</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="2" name="Stop" sid="982618263008288" type="jellyfish" />
+                                <action behavior="Pathfinding" id="3" name="Set enabled" sid="989641141878845" type="jellyfish">
+                                    <param id="0" name="Set">0</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="935986143654126" type="jellyfish">
+                                    <param id="0" name="X">player.X</param>
+                                    <param id="1" name="Y">player.y</param>
+                                </action>
+                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="848783300312119" type="jellyfish">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="904914994247254" type="jellyfish">
+                                    <param id="0" name="Acceleration">30</param>
+                                    <param id="1" name="X">player.X</param>
+                                    <param id="2" name="Y">player.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="708690004111529">
+                            <conditions>
+                                <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="512105354408610" type="jellyfish">
+                                    <param id="0" name="Object">player</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="584614748808117">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="780505149449453" type="System">
+                                            <param id="0" name="Interval (seconds)">random(1,3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="CustomMovement" id="0" name="Stop" sid="548425910998153" type="jellyfish" />
+                                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="953831477882222" type="jellyfish">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action behavior="Pathfinding" id="3" name="Set enabled" sid="908046544702297" type="jellyfish">
+                                            <param id="0" name="Set">1</param>
+                                        </action>
+                                        <action behavior="Pathfinding" id="0" name="Find path" sid="113258470234477" type="jellyfish">
+                                            <param id="0" name="X">jellyfish.X + random(-150,150)</param>
+                                            <param id="1" name="Y">jellyfish.Y + random(-150,150)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="686286411419291">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="365892736949143" type="jellyfish">
+                                    <param id="0" name="Object">Tilemap</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="10" name="Push out solid" sid="372047437662036" type="jellyfish">
+                                    <param id="0" name="Direction">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="849495052073752" title="Jellyfish respawn">
+                    <sub-events>
+                        <event-block sid="551703855799637">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="594463329682966" type="System">
+                                    <param id="0" name="Interval (seconds)">random(15,25)</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="401947006810029" type="System">
+                                    <param id="0" name="Variable">jellyfishCount</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">MAX_JELLYFISH</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="708932461344153" type="System">
+                                    <param id="0" name="Object to create">jellyfish</param>
+                                    <param id="1" name="Layer">&quot;Characters&quot;</param>
+                                    <param id="2" name="X">Tilemap.TileToPositionX(int(random(0,9)))</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="769114146312645" type="System">
+                                    <param id="0" name="Variable">jellyfishCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
     </events>
